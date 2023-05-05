@@ -24,7 +24,7 @@
 - GET /stores/:가게id
 
   - 가게 상세 정보 보여주기
-  - {"name": 가게이름, "address": 가게주소, "phone": 가게전화번호, "primaryTag": 대표태그번호} 반환
+  - {"name": 가게이름, "address": 가게주소, "image_url": 이미지 url, "primaryTag": 대표태그번호} 반환
   - tag 1: 밥약
   - tag 2: 오늘은 거하게
   - tag 3: 동아리 회식
@@ -45,10 +45,10 @@
 - GET /stores/:세부카테고리
 
   - 세부카테고리에 맞는 가게 정보 모아서 가져오기
-  - {"name": 가게이름, "address": 가게주소, "imageUrl": 이미지주소}
+  - {"name": 가게이름, "address": 가게주소, "image_url": 이미지주소}
   - 세부카테고리: 공유 문서에 있는 세부카테고리 그대로 써 주시되, "족발&보쌈", "탕&찌개"와 같이 특수문자 있는경우 "족발보쌈", "탕찌개" 로 붙여서 쓰는것으로 해 주세요
 
 - GET /stores/:태그
 
   - 태그에 맞는 가게 정보 모아서 가져오기
-  - {"name": 가게이름, "address": 가게주소, "imageUrl": 이미지주소}[]
+  - {"name": 가게이름, "address": 가게주소, "image_url": 이미지주소}[]

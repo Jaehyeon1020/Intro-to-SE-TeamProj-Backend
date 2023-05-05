@@ -12,9 +12,11 @@ async def root():
 
 @app.get("/db-connection-test")
 async def test():
-    session.add(User(username="thisisusername", password="thisispassword"))
-    session.commit()
-    return {"message": "테스트"}
+    # session.add(User(username="thisisusername", password="thisispassword"))
+    # session.commit()
+    restaurants = session.query(Restaurant).all()
+
+    return {"result": restaurants}
 
 
 # 라우터

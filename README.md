@@ -44,12 +44,17 @@
 
   - 가게 상세 정보 보여주기
   - {"name": 가게이름, "address": 가게주소, "image_url": 이미지 url, "primary_tags": 대표태그번호} 반환
-  - 반환 예시: {
+  - 반환 예시:
+
+  ```
+  {
     "name": "마왕족발",
     "address": "수원시 장안구 화산로221",
     "image_url": "url",
     "primary_tags": ["4","5"]
-    } // primary_tags는 리스트입니다.(값이 여러개인 경우가 있기 때문에)
+  } // primary_tags는 리스트입니다.(값이 여러개인 경우가 있기 때문에)
+  ```
+
   - tag 1: 밥약
   - tag 2: 오늘은 거하게
   - tag 3: 동아리 회식
@@ -57,15 +62,6 @@
   - tag 5: 어른들과 약속
   - tag 6: 가성비최고
   - tag 7: 비싸도 맛있어
-
-- GET /stores/:가게id/reviews
-
-  - id에 맞는 가게 리뷰 가져오기
-
-- POST /stores/:가게id/reviews
-
-  - 리뷰 작성
-  - {"tags": [태그1, 태그2, 태그3 ... ]} 형식으로 폼데이터 날려주세요
 
 - GET /stores/categories/:세부카테고리
 
@@ -96,3 +92,12 @@
 
   - 태그 번호에 맞는 가게 정보 모아서 가져오기
   - {"name": 가게이름, "address": 가게주소, "image_url": 이미지주소}[]
+
+- GET /stores/:가게id/reviews
+
+  - id에 맞는 가게 리뷰 가져오기
+
+- POST /stores/:가게id/reviews
+
+  - 리뷰 작성
+  - {"tags": [태그1, 태그2, 태그3 ... ]} 형식으로 폼데이터 날려주세요

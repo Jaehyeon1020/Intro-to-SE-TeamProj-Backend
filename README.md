@@ -24,7 +24,13 @@
 - GET /stores/:가게id
 
   - 가게 상세 정보 보여주기
-  - {"name": 가게이름, "address": 가게주소, "image_url": 이미지 url, "primaryTag": 대표태그번호} 반환
+  - {"name": 가게이름, "address": 가게주소, "image_url": 이미지 url, "primary_tags": 대표태그번호} 반환
+  - 반환 정보 예시: {
+    "name": "마왕족발",
+    "address": "수원시 장안구 화산로221",
+    "image_url": "url",
+    "primary_tags": ["4","5"]
+    } // primary_tags는 리스트입니다.(값이 여러개인 경우가 있기 때문에)
   - tag 1: 밥약
   - tag 2: 오늘은 거하게
   - tag 3: 동아리 회식

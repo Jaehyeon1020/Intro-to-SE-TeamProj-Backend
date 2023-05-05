@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI
 from routers import users, stores
 from dbconfig import session, User, Restaurant, Tag
 

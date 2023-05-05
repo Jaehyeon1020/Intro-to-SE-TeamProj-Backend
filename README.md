@@ -20,12 +20,29 @@
 - GET /stores
 
   - 모든 가게 정보 보여주기
+  - 반환 예시:
+    [
+    {
+    "restaurant_name": "수해복마라탕",
+    "address": "경기 수원시 장안구 서부로",
+    "image_url": "url",
+    "category": "중식",
+    "id": 1
+    },
+    {
+    "restaurant_name": "미가라멘",
+    "address": "수원시 장안구 화산로221",
+    "image_url": "url",
+    "category": "일식",
+    "id": 2
+    }
+    ]
 
 - GET /stores/:가게id
 
   - 가게 상세 정보 보여주기
   - {"name": 가게이름, "address": 가게주소, "image_url": 이미지 url, "primary_tags": 대표태그번호} 반환
-  - 반환 정보 예시: {
+  - 반환 예시: {
     "name": "마왕족발",
     "address": "수원시 장안구 화산로221",
     "image_url": "url",
@@ -48,13 +65,29 @@
   - 리뷰 작성
   - {"tags": [태그1, 태그2, 태그3 ... ]} 형식으로 폼데이터 날려주세요
 
-- GET /stores/:세부카테고리
+- GET /stores/categories/:세부카테고리
 
   - 세부카테고리에 맞는 가게 정보 모아서 가져오기
-  - {"name": 가게이름, "address": 가게주소, "image_url": 이미지주소}
   - 세부카테고리: 공유 문서에 있는 세부카테고리 그대로 써 주시되, "족발&보쌈", "탕&찌개"와 같이 특수문자 있는경우 "족발보쌈", "탕찌개" 로 붙여서 쓰는것으로 해 주세요
+  - 반환 예시(모든 카테고리 가져오기와 동일한데 카테고리 같은거만 분류돼서 반환):
+    [
+    {
+    "restaurant_name": "바른스시",
+    "address": "경기 수원시 장안구 서부로",
+    "image_url": "url",
+    "category": "일식",
+    "id": 1
+    },
+    {
+    "restaurant_name": "미가라멘",
+    "address": "수원시 장안구 화산로221",
+    "image_url": "url",
+    "category": "일식",
+    "id": 2
+    }
+    ]
 
-- GET /stores/:태그
+- GET /stores/tags/:태그번호
 
-  - 태그에 맞는 가게 정보 모아서 가져오기
+  - 태그 번호에 맞는 가게 정보 모아서 가져오기
   - {"name": 가게이름, "address": 가게주소, "image_url": 이미지주소}[]

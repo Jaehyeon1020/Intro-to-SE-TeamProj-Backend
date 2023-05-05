@@ -21,22 +21,24 @@
 
   - 모든 가게 정보 보여주기
   - 반환 예시:
+    ```
     [
-    {
-    "restaurant_name": "수해복마라탕",
-    "address": "경기 수원시 장안구 서부로",
-    "image_url": "url",
-    "category": "중식",
-    "id": 1
-    },
-    {
-    "restaurant_name": "미가라멘",
-    "address": "수원시 장안구 화산로221",
-    "image_url": "url",
-    "category": "일식",
-    "id": 2
-    }
+      {
+      "restaurant_name": "수해복마라탕",
+      "address": "경기 수원시 장안구 서부로",
+      "image_url": "url",
+      "category": "중식",
+      "id": 1
+      },
+      {
+      "restaurant_name": "미가라멘",
+      "address": "수원시 장안구 화산로221",
+      "image_url": "url",
+      "category": "일식",
+      "id": 2
+      }
     ]
+    ```
 
 - GET /stores/:가게id
 
@@ -70,22 +72,25 @@
   - 세부카테고리에 맞는 가게 정보 모아서 가져오기
   - 세부카테고리: 공유 문서에 있는 세부카테고리 그대로 써 주시되, "족발&보쌈", "탕&찌개"와 같이 특수문자 있는경우 "족발보쌈", "탕찌개" 로 붙여서 쓰는것으로 해 주세요
   - 반환 예시(모든 카테고리 가져오기와 동일한데 카테고리 같은거만 분류돼서 반환):
+
+  ```
     [
-    {
-    "restaurant_name": "바른스시",
-    "address": "경기 수원시 장안구 서부로",
-    "image_url": "url",
-    "category": "일식",
-    "id": 1
-    },
-    {
-    "restaurant_name": "미가라멘",
-    "address": "수원시 장안구 화산로221",
-    "image_url": "url",
-    "category": "일식",
-    "id": 2
-    }
+      {
+      "restaurant_name": "바른스시",
+      "address": "경기 수원시 장안구 서부로",
+      "image_url": "url",
+      "category": "일식",
+      "id": 1
+      },
+      {
+      "restaurant_name": "미가라멘",
+      "address": "수원시 장안구 화산로221",
+      "image_url": "url",
+      "category": "일식",
+      "id": 2
+      }
     ]
+  ```
 
 - GET /stores/tags/:태그번호
 

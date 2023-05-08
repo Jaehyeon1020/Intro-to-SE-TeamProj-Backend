@@ -26,5 +26,4 @@ def logout():
 @router.post("/signup")
 def signup(id: str = Form(), password: str = Form()):
     ''' 회원가입 기능 구현 '''
-    user_form = {"id": id, "password": password}
-    return user_form
+    return controller.signup(id, password)

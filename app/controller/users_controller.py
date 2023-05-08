@@ -5,5 +5,9 @@ from controller import dto
 query = users_dbhelper()
 
 
+def signup(id: str, password: str):
+    return query.signup(id, password)
+
+
 def logout():
     return query.logout()

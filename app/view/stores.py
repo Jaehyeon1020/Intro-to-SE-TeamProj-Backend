@@ -2,7 +2,6 @@ from fastapi import APIRouter
 from controller import stores_controller
 
 router = APIRouter(prefix="/stores", tags=["stores"])
-
 controller = stores_controller
 
 

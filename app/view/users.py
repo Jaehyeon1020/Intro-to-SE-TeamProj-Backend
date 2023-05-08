@@ -1,7 +1,9 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Form
 from pydantic import BaseModel
+from controller import users_controller
 
 router = APIRouter(prefix="/users", tags=["users"])
+controller = users_controller
 
 
 class User(BaseModel):
@@ -12,7 +14,7 @@ class User(BaseModel):
 @router.post("/login")
 def login(user: User):
     ''' 로그인 기능 구현 '''
-    return "로그인 api"
+    return "로그인"
 
 
 @router.get("/logout")
@@ -22,6 +24,7 @@ def logout():
 
 
 @router.post("/signup")
-def signup(user: User):
+def signup(id: str = Form(), password: str = Form()):
     ''' 회원가입 기능 구현 '''
-    return "회원가입 api"
+    user_form = {"id": id, "password": password}
+    return user_form

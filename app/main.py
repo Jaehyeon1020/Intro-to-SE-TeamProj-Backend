@@ -1,24 +1,30 @@
 from fastapi import FastAPI
-from routers import users, stores
-from dbconfig import session, User, Restaurant, Tag
+from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
-app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return {"message": "루트 경로"}
+from view import stores
 
 
-@app.get("/db-connection-test")
-async def test():
-    # session.add(User(username="thisisusername", password="thisispassword"))
-    # session.commit()
-    restaurants = session.query(Restaurant).all()
-
-    return {"result": restaurants}
+def include_router(app):
+    app.include_router(stores.router)
 
 
-# 라우터
-app.include_router(users.router)
-app.include_router(stores.router)
+def start_application():
+    app = FastAPI()
+    include_router(app)
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+    return app
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", reload=True)  # , port=5000, host='192.168.0.15')
+
+app = start_application()

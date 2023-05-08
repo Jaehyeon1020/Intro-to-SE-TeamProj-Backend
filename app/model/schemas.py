@@ -1,26 +1,7 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-data = {
-    'name': 'mysql+pymysql',
-    'user': 'admin',
-    'pwd': os.getenv("DB_PASSWORD"),
-    'host': os.getenv("DB_HOST"),
-    'port': '3306',
-    'db': 'IntroToSe'
-}
-
-db_conn_string = f'{data["name"]}://' \
-    f'{data["user"]}:{data["pwd"]}' \
-    f'@{data["host"]}:{data["port"]}' \
-    f'/{data["db"]}' \
-    f'?charset=utf8'
+from sqlalchemy import Column, ForeignKey, Boolean, Text
+from sqlalchemy import String, Integer, Float
+from sqlalchemy.orm import relationship
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
@@ -57,22 +38,3 @@ class Tag(Base):
     tag5 = Column(Integer, nullable=False)
     tag6 = Column(Integer, nullable=False)
     tag7 = Column(Integer, nullable=False)
-
-
-class db_conn:
-    def __init__(self):
-        self.engine = create_engine(db_conn_string, pool_recycle=500)
-
-    def sessionmaker(self):
-        Session = sessionmaker(bind=self.engine)
-        session = Session()
-        return session
-
-    def connection(self):
-        conn = self.engine.connect()
-        return conn
-
-
-db = db_conn()
-conn = db.connection()
-session = db.sessionmaker()

@@ -9,11 +9,21 @@
 - POST /users/login
   - 로그인 기능
   - {"id": id, "password": pw} 형식으로 폼데이터 날려주세요
+  - 로그인 성공 시 access_token 쿠키에 토큰이 저장됩니다. 200 OK
+  - 로그인 실패 시 404 NOT FOUND 에러가 발생합니다.
 - GET /users/logout
-  - 로그아웃 기능(회의 필요)
+  - 로그아웃 기능
+  - access_token 쿠키의 내용을 삭제합니다.
+  - 성공 시 200 OK
 - POST /users/signup
   - 회원가입 기능
   - {"id": id, "password": pw} 형식으로 폼데이터 날려주세요
+  - 회원가입 성공 시 200 OK
+  - 회원가입 실패 시 400 BAD REQUEST 에러가 발생합니다.
+- GET /users/logincheck
+  - 로그인 상태를 체크합니다. (로그인해야 접속 가능한 페이지 구현용)
+  - 토큰이 만료되지 않은 경우(로그인 상태인 경우) 200 OK
+  - 토큰이 만료되었거나 로그인 상태가 아닌 경우 401 UNAUTHORIZED 에러가 발생합니다.
 
 ### 식당 정보 관련 api
 

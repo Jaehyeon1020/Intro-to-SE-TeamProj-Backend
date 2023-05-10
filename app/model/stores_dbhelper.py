@@ -1,6 +1,7 @@
 from model.dbconfig import db_conn
 from model.schemas import Restaurant, Tag
 from sqlalchemy import func
+from fastapi import HTTPException
 
 engine = db_conn()
 session = engine.sessionmaker()
@@ -58,10 +59,32 @@ class stores_dbhelper:
 
         return restaurants
 
-    def get_reviews_by_id(store_id: int):
+    def get_reviews_by_id(self, store_id: int):
         ''' id에 맞는 식당의 리뷰 반환 '''
-        return {"store_id:": store_id}
 
-    def create_new_review(store_id: int):
+        restaurant = session.query(Tag).filter(
+            Tag.restaurant_id == store_id
+        ).all()
+
+        return restaurant
+
+    def create_new_review(self, store_id: int, tags):
         ''' 새로운 리뷰 생성 '''
-        return {"store_id": store_id}
+
+        restaurant: Restaurant = session.query(
+            Restaurant).filter(Restaurant.id == store_id).first()
+        if not restaurant:
+            raise HTTPException(
+                status_code=404, detail=f"Restaurant with id {store_id} not found")
+
+        tag_info: Tag = session.query(Tag).filter(
+            Tag.restaurant_id == store_id).first()
+        if not tag_info:
+            raise HTTPException(
+                status_code=404, detail=f"Tags for restaurant with id {store_id} not found")
+
+        for tag in tags:
+            current_tag_value = getattr(tag_info, f"{tag}")
+            setattr(tag_info, f"{tag}", current_tag_value + 1)
+
+        session.commit()

@@ -47,9 +47,14 @@ def get_stores_by_tag(tag_number: int):
 
 def get_reviews_by_id(store_id: int):
     ''' id에 맞는 식당의 리뷰 반환 '''
-    return {"store_id:": store_id}
+
+    restaurant = query.get_reviews_by_id(store_id)
+
+    response = dto.to_json(restaurant)
+
+    return response
 
 
-def create_new_review(store_id: int):
+def create_new_review(store_id: int, tags):
     ''' 새로운 리뷰 생성 '''
-    return {"store_id": store_id}
+    query.create_new_review(store_id, tags)

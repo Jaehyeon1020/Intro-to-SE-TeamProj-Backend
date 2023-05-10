@@ -1,5 +1,7 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from controller import stores_controller
+from typing import List
+
 
 router = APIRouter(prefix="/stores", tags=["stores"])
 controller = stores_controller
@@ -44,10 +46,13 @@ def get_stores_by_tag(tag_number: int):
 @router.get("/{store_id}/reviews")
 def get_reviews_by_id(store_id: int):
     ''' id에 맞는 식당의 리뷰 반환 '''
-    return {"store_id:": store_id}
+
+    response = controller.get_reviews_by_id(store_id)
+
+    return response
 
 
 @router.post("/{store_id}/reviews")
-def create_new_review(store_id: int):
+def create_new_review(store_id: int, tags: List[str] = Query(None)):
     ''' 새로운 리뷰 생성 '''
-    return {"store_id": store_id}
+    controller.create_new_review(store_id, tags)  # 아직 완성 안됨

@@ -5,10 +5,10 @@
 **배포 완료되었습니다**
 
 API 서버 주소:
-https://intro-to-se-teamproj-backend.herokuapp.com
+https://port-0-intro-to-se-teamproj-backend-7hqac2alhil3qhz.sel4.cloudtype.app
 
 요청 예시:
-GET https://intro-to-se-teamproj-backend.herokuapp.com/stores (모든 가게 정보 불러오기)
+GET https://port-0-intro-to-se-teamproj-backend-7hqac2alhil3qhz.sel4.cloudtype.app/stores (모든 가게 정보 불러오기)
 
 ## API 명세서
 

@@ -2,6 +2,14 @@
 
 소프트웨어공학개론 팀프로젝트 백엔드
 
+**배포 완료되었습니다**
+
+API 서버 주소:
+https://intro-to-se-teamproj-backend.herokuapp.com
+
+요청 예시:
+GET https://intro-to-se-teamproj-backend.herokuapp.com/stores (모든 가게 정보 불러오기)
+
 ## API 명세서
 
 ### 로그인 / 회원가입 관련 api

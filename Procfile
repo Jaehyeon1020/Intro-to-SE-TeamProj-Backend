@@ -1,1 +1,1 @@
-web: cd ./app && uvicorn main:app
+web: uvicorn app.main:app

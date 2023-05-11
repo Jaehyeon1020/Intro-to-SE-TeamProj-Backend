@@ -1,5 +1,5 @@
-from model.dbconfig import db_conn
-from model.schemas import Restaurant, Tag
+from .dbconfig import db_conn
+from .schemas import Restaurant, Tag
 from sqlalchemy import func
 from fastapi import HTTPException
 

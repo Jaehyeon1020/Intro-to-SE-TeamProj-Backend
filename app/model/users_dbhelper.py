@@ -1,5 +1,5 @@
-from model.dbconfig import db_conn
-from model.schemas import User
+from .dbconfig import db_conn
+from .schemas import User
 from fastapi import HTTPException, status
 from fastapi.responses import JSONResponse
 import bcrypt

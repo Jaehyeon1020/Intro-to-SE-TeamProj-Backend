@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Form, Cookie
 from pydantic import BaseModel
-from controller import users_controller
+from ..controller import users_controller
 
 router = APIRouter(prefix="/users", tags=["users"])
 controller = users_controller

@@ -1,6 +1,6 @@
 from fastapi import HTTPException
-from model.users_dbhelper import users_dbhelper
-from controller import dto
+from ..model.users_dbhelper import users_dbhelper
+from . import dto
 
 query = users_dbhelper()
 

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query
-from controller import stores_controller
+from ..controller import stores_controller
 from typing import List
 
 

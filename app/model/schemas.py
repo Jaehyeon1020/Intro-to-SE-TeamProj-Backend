@@ -21,7 +21,7 @@ class Restaurant(Base):
 
   id = Column(Integer, primary_key=True)
   restaurant_name = Column(String(50), nullable=False)
-  image_url = Column(String(500), nullable=False)
+  image_url = Column(String(450), nullable=False)
   address = Column(String(100), nullable=False)
   category = Column(String(30), nullable=False)
 

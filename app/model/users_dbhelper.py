@@ -48,7 +48,8 @@ class users_dbhelper:
     res = JSONResponse({"message": "로그인 성공"})
 
     # jwt 쿠키에 넣어서 전송
-    res.set_cookie(key="access_token", value=access_token, samesite='none')
+    res.set_cookie(key="access_token", value=access_token,
+                   samesite='none', secure=True)
 
     return res
 

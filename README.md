@@ -117,5 +117,18 @@ GET https://port-0-intro-to-se-teamproj-backend-7hqac2alhil3qhz.sel4.cloudtype.a
 
 - POST /stores/:가게id/reviews
 
-  - 리뷰 작성
-  - {"tags": [태그1, 태그2, 태그3 ... ]} 형식으로 폼데이터 날려주세요
+  - 리뷰 작성(태그 추가)
+  - 유저가 선택한 태그에 대해서는 1, 선택하지 않은 태그에 대해서는 0으로 폼데이터 보내주세요(tag1 ~ tag7이 모두 와야합니다)
+  - 예시(유저가 tag1과 tag4를 선택한 경우):
+
+  ```
+  {"tag1": 1, "tag2": 0, "tag3": 0, "tag4": 1, "tag5": 0, "tag6": 0, "tag7": 0}
+  ```
+
+  - tag 1: 밥약
+  - tag 2: 오늘은 거하게
+  - tag 3: 동아리 회식
+  - tag 4: 데이트 맛집
+  - tag 5: 어른들과 약속
+  - tag 6: 가성비최고
+  - tag 7: 비싸도 맛있어

@@ -80,8 +80,9 @@ class stores_dbhelper:
 
     return restaurant
 
-  def create_new_review(self, store_id: int, tags):
-    ''' 새로운 리뷰 생성 '''
+  def create_new_review(self, store_id,
+                        tag1, tag2, tag3, tag4, tag5, tag6, tag7):
+    ''' 새로운 리뷰 생성  '''
 
     restaurant: Restaurant = session.query(
         Restaurant).filter(Restaurant.id == store_id).first()
@@ -95,8 +96,40 @@ class stores_dbhelper:
       raise HTTPException(
           status_code=404, detail=f"Tags for restaurant with id {store_id} not found")
 
-    for tag in tags:
-      current_tag_value = getattr(tag_info, f"{tag}")
-      setattr(tag_info, f"{tag}", current_tag_value + 1)
+    tag_data = {
+        "tag1": tag1,
+        "tag2": tag2,
+        "tag3": tag3,
+        "tag4": tag4,
+        "tag5": tag5,
+        "tag6": tag6,
+        "tag7": tag7
+    }
+
+    for tag, value in tag_data.items():
+      if value == 1:
+        current_tag_value = getattr(tag_info, tag)
+        setattr(tag_info, tag, current_tag_value + 1)
 
     session.commit()
+
+  # def create_new_review(self, store_id: int, tags):
+  #   ''' 새로운 리뷰 생성 '''
+
+  #   restaurant: Restaurant = session.query(
+  #       Restaurant).filter(Restaurant.id == store_id).first()
+  #   if not restaurant:
+  #     raise HTTPException(
+  #         status_code=404, detail=f"Restaurant with id {store_id} not found")
+
+  #   tag_info: Tag = session.query(Tag).filter(
+  #       Tag.restaurant_id == store_id).first()
+  #   if not tag_info:
+  #     raise HTTPException(
+  #         status_code=404, detail=f"Tags for restaurant with id {store_id} not found")
+
+  #   for tag in tags:
+  #     current_tag_value = getattr(tag_info, f"{tag}")
+  #     setattr(tag_info, f"{tag}", current_tag_value + 1)
+
+  #   session.commit()

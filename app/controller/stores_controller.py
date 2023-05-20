@@ -60,6 +60,13 @@ def get_reviews_by_id(store_id: int):
   return response
 
 
-def create_new_review(store_id: int, tags):
+def create_new_review(store_id,
+                      tag1, tag2, tag3, tag4, tag5, tag6, tag7):
   ''' 새로운 리뷰 생성 '''
-  query.create_new_review(store_id, tags)
+  query.create_new_review(store_id,
+                          tag1, tag2, tag3, tag4, tag5, tag6, tag7)
+
+
+# def create_new_review(store_id: int, tags):
+#   ''' 새로운 리뷰 생성 '''
+#   query.create_new_review(store_id, tags)

@@ -60,6 +60,17 @@ def get_reviews_by_id(store_id: int):
 
 
 @router.post("/{store_id}/reviews")
-def create_new_review(store_id: int, tags: List[str] = Query(None)):
+def create_new_review(store_id: int,
+                      tag1: int = Form(), tag2: int = Form(), tag3: int = Form(),
+                      tag4: int = Form(), tag5: int = Form(), tag6: int = Form(),
+                      tag7: int = Form(),):
   ''' 새로운 리뷰 생성 '''
-  controller.create_new_review(store_id, tags)  # 아직 완성 안됨
+
+  controller.create_new_review(store_id,
+                               tag1, tag2, tag3, tag4, tag5, tag6, tag7)
+
+
+# @router.post("/{store_id}/reviews")
+# def create_new_review(store_id: int, tags: List[str] = Query(None)):
+#   ''' 새로운 리뷰 생성 '''
+#   controller.create_new_review(store_id, tags)  # 아직 완성 안됨

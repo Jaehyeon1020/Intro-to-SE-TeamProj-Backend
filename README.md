@@ -108,12 +108,12 @@ GET https://port-0-intro-to-se-teamproj-backend-7hqac2alhil3qhz.sel4.cloudtype.a
 
 - GET /stores/tags/:태그번호
 
-  - 태그 번호에 맞는 가게 정보 모아서 가져오기
+  - 태그 번호에 맞는 가게 정보 모아서 가져오기 - 해당 태그를 많이 받은 순서대로
   - {"name": 가게이름, "address": 가게주소, "image_url": 이미지주소}[]
 
 - GET /stores/:가게id/reviews
 
-  - id에 맞는 가게 리뷰 가져오기
+  - id에 맞는 가게 리뷰(Tag 목록 - 어떤 태그가 몇개 추천받았는지) 가져오기
 
 - POST /stores/:가게id/reviews
 

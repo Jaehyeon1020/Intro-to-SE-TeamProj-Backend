@@ -50,8 +50,8 @@ class stores_dbhelper:
     ''' 세부 카테고리에 맞는 가게 정보 반환 '''
 
     # 카테고리에 맞는 식당 정보 DB에서 가져오기
-    restaurants = session.query(Restaurant).filter_by(
-        category=detail_category).all()
+    restaurants = session.query(Restaurant).where(
+        Restaurant.category.contains(detail_category)).all()
 
     return restaurants
 

@@ -14,7 +14,7 @@ def create_store(restaurant_name: str = Form(), image_url: str = Form(),
   return controller.create_store(restaurant_name, image_url, address, category)
 
 
-@router.get("")
+@router.get("/all")
 def get_all_stores():
   ''' 모든 식당 정보 반환 '''
 

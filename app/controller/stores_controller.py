@@ -15,9 +15,9 @@ def get_all_stores():
 
   restaurants = query.get_all_stores()
 
-  response = dto.to_json(restaurants)
+  # response = dto.to_json(restaurants)
 
-  return response
+  return restaurants
 
 
 def get_store_by_id(store_id: int):
@@ -25,9 +25,9 @@ def get_store_by_id(store_id: int):
 
   restaurant_info = query.get_stores_by_id(store_id)
 
-  response = dto.to_json(restaurant_info)
+  # response = dto.to_json(restaurant_info)
 
-  return response
+  return restaurant_info
 
 
 def get_stores_by_category(detail_category: str):
@@ -35,9 +35,9 @@ def get_stores_by_category(detail_category: str):
 
   restaurants = query.get_stores_by_category(detail_category)
 
-  response = dto.to_json(restaurants)
+  # response = dto.to_json(restaurants)
 
-  return response
+  return restaurants
 
 
 def get_stores_by_tag(tag_number: int):
@@ -45,9 +45,9 @@ def get_stores_by_tag(tag_number: int):
 
   restaurants = query.get_stores_by_tag(tag_number)
 
-  response = restaurants  # dto.to_json(restaurants)
+  # response = restaurants  # dto.to_json(restaurants)
 
-  return response
+  return restaurants
 
 
 def get_reviews_by_id(store_id: int):
@@ -55,9 +55,9 @@ def get_reviews_by_id(store_id: int):
 
   restaurant = query.get_reviews_by_id(store_id)
 
-  response = dto.to_json(restaurant)
+  # esponse = dto.to_json(restaurant)
 
-  return response
+  return restaurant
 
 
 def create_new_review(store_id,

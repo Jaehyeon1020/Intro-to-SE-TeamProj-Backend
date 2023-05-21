@@ -12,6 +12,7 @@ def include_router(app):
 
 def start_application():
   app = FastAPI()
+  # app.router.redirect_slashes = False
   include_router(app)
 
   app.add_middleware(

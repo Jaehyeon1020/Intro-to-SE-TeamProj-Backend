@@ -7,14 +7,14 @@ router = APIRouter(prefix="/stores", tags=["stores"])
 controller = stores_controller
 
 
-@router.post("/")
+@router.post("")
 def create_store(restaurant_name: str = Form(), image_url: str = Form(),
                  address: str = Form(), category: str = Form()):
   ''' 식당 추가 '''
   return controller.create_store(restaurant_name, image_url, address, category)
 
 
-@router.get("/")
+@router.get("")
 def get_all_stores():
   ''' 모든 식당 정보 반환 '''
 
